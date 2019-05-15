@@ -136,7 +136,8 @@ int DSA::clook(){
         int sol = 0;
         set<int> my_set (reqs.begin(), reqs.end());
         
-	for(int r = this->head; r < max(this->head, *my_set.end() ) ; r++){
+	auto mx = max(this->head, *my_set.end());
+	for(int r = this->head; r < mx  ; r++){
                 if( my_set.count(r) != 0){
                         sol += abs(prev - r);
                         prev = r;
@@ -144,7 +145,8 @@ int DSA::clook(){
 
         }
 	
-	for(int l = min(this->head, *my_set.begin()); l < this->head; l++){
+	auto m = min(this->head, *my_set.begin());
+	for(int l = m; l < this->head; l++){
 		if( my_set.count(l) != 0){
                         sol += abs(prev - l);
                         prev = l;
@@ -159,4 +161,7 @@ void DSA::print(){
 	cout<<"SSTF algorith: "<<sstf()<<" cylinders."<<endl;
 	cout<<"SCAN algorithm: "<<scan()<<" cylinders."<<endl;
 	cout<<"CSCAN algorithm: "<<cscan()<<" cylinders."<<endl;
+	cout<<"LOOK algorithm: "<<look()<<" cylinders."<<endl;
+	cout<<"CLOOK algorithm: "<<clook()<<" cylinders."<<endl;
+
 }

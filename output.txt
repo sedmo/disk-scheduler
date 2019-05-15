@@ -1,6 +1,9 @@
-Enter initial position of head: 854
+Enter initial position of head: 465
 
-FCFS algorithm: 76687 cylinders.
-SSTF algorith: 8211 cylinders.
-SCAN algorithm: 5641 cylinders.
+FCFS algorithm: 78188 cylinders.
+SSTF algorith: 6037 cylinders.
+SCAN algorithm: 5241 cylinders.
+CSCAN algorithm: 9688 cylinders.
+LOOK algorithm: 72 cylinders.
+CLOOK algorithm: 650 cylinders.
 
