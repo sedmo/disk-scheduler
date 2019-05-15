@@ -78,8 +78,85 @@ int DSA::scan(){
 	}
 	return sol;
 }
+
+int DSA::cscan(){
+	//runs for loop right then start at 0 back to head
+	
+	int prev = this->head;
+	int sol = 0;
+	set<int> my_set (reqs.begin(), reqs.end());	
+
+	for(int r = this->head; r < C_SZ; r++){
+		if( my_set.count(r) != 0){
+			sol += abs(prev - r);		
+			prev = r;
+		}    
+	
+	}
+
+	for(int l = 0; l <= this->head; l++){
+		if( my_set.count(l) != 0){
+			sol += abs(prev - l);
+			prev = l;
+		}
+	}
+
+	return sol;
+}
+
+int DSA::look(){
+	
+	//look is bounded by smallest and largest elements in the string
+	
+	int prev = this->head;
+        int sol = 0;
+        set<int> my_set (reqs.begin(), reqs.end());
+        for(int l = this->head; l > min(this->head, *my_set.begin() ) ; --l){
+                if( my_set.count(l) != 0){
+                        sol += abs(prev - l);
+                        prev = l;
+                }
+
+        }
+
+        for(int r = this->head; r < max(this->head, *my_set.end() ) ; r++){
+                if( my_set.count(r) != 0){
+                        sol += abs(prev - r);
+                        prev = r;
+                }
+
+        }
+        return sol;
+}
+
+int DSA::clook(){
+
+
+	int prev = this->head;
+        int sol = 0;
+        set<int> my_set (reqs.begin(), reqs.end());
+        
+	for(int r = this->head; r < max(this->head, *my_set.end() ) ; r++){
+                if( my_set.count(r) != 0){
+                        sol += abs(prev - r);
+                        prev = r;
+                }
+
+        }
+	
+	for(int l = min(this->head, *my_set.begin()); l < this->head; l++){
+		if( my_set.count(l) != 0){
+                        sol += abs(prev - l);
+                        prev = l;
+                }	
+	} 
+
+        return sol;
+}
+
 void DSA::print(){
 	cout<<"FCFS algorithm: "<<fcfs()<<" cylinders."<<endl;
 	cout<<"SSTF algorith: "<<sstf()<<" cylinders."<<endl;
 	cout<<"SCAN algorithm: "<<scan()<<" cylinders."<<endl;
+	cout<<"CSCAN algorithm: "<<cscan()<<" cylinders."<<endl;
 }

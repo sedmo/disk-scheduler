@@ -38,8 +38,30 @@ class DSA
 	 *
 	 */
 	int scan();
+	/* int cscan: Just like scan. However, when arm reaches right end, it starts back from beginning
+	 * as opposed to backtracking.
+	 *
+	 * params: none
+	 *
+	 * return value: #of movements to complete request.
+	 *
+	 */
 	int cscan();
+	/* int look: Just like scan. Arm only goes as far as largest cylinder.
+	 *
+	 * params: none
+	 *
+	 * return value: #of movements to complete request.
+	 *
+	 */
 	int look();
+	/* int look: Just like cscan. Arm only goes as far as largest cylinder.
+	 *
+	 * params: none
+	 *
+	 * return value: #of movements to complete request.
+	 *
+	 */
 	int clook();
 	
 	public:
